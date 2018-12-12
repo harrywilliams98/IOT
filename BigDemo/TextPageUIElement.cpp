@@ -40,7 +40,7 @@ bool view = true;
 bool TextPageUIElement::handleTouch(long x, long y) {
   m_tft->setTextColor(BLACK, WHITE);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
-//    drawBackground();
+
     uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
     int wordsPrinted = 0;
@@ -106,23 +106,23 @@ void TextPageUIElement::printHistory(uint16_t x, uint16_t y) {
 }
 //////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////
-/**
- *
- */
-void TextPageUIElement::drawBackground() {
-  int charsPrinted = 0;
-  const char *cp = NULL;
-  m_tft->setCursor(x, y);
-  for(cp = textHistory.first(); cp; cp = textHistory.next()) {
-    m_tft->print(cp);
-    m_tft->print(" ");
-    charsPrinted += strlen(cp) + 1;
-  }
-  for( ; charsPrinted < 200; charsPrinted++)
-    m_tft->print(" ");
-}
-//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+///**
+// *
+// */
+//void TextPageUIElement::drawBackground() {
+//  int charsPrinted = 0;
+//  const char *cp = NULL;
+//  m_tft->setCursor(x, y);
+//  for(cp = textHistory.first(); cp; cp = textHistory.next()) {
+//    m_tft->print(cp);
+//    m_tft->print(" ");
+//    charsPrinted += strlen(cp) + 1;
+//  }
+//  for( ; charsPrinted < 200; charsPrinted++)
+//    m_tft->print(" ");
+//}
+////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
 /**
