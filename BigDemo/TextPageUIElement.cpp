@@ -38,7 +38,7 @@ bool view = true;
  * @returns bool - true if the touch is on the switcher
  */
 bool TextPageUIElement::handleTouch(long x, long y) {
-  m_tft->setTextColor(BLACK);
+    m_tft->setTextColor(BLACK);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
     uint8_t symbol = mapTextTouch(x, y);
@@ -187,7 +187,7 @@ void TextPageUIElement::drawTextBoxes(bool view) {
   for(int i = 0, x = 30, y = 190; i < NUMLABELS; i++) {
     for(int j = 0; j < 3; j++, i++) {
       m_tft->setCursor(x, y);
-      if(i == 9 || i == 10) m_tft->setTextColor(WHITE);
+      if(i == 9 || i == 10) m_tft->setTextColor(BLACK);
       if(view){ 
         m_tft->print(labels[i]);
       }
@@ -237,6 +237,7 @@ void TextHistory::store(const char *word) {
 
 // TODO validate this
 void TextHistory::remove() { // remove last member
+  setTextColor(WHITE)
   uint8_t lastMemberIndex;
   if(members == 0) return;
   if(cursor == 0)
