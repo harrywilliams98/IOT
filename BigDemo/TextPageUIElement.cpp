@@ -106,23 +106,14 @@ void TextPageUIElement::printHistory(uint16_t x, uint16_t y) {
 }
 //////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////
-///**
-// *
-// */
-//void TextPageUIElement::drawBackground() {
-//  int charsPrinted = 0;
-//  const char *cp = NULL;
-//  m_tft->setCursor(x, y);
-//  for(cp = textHistory.first(); cp; cp = textHistory.next()) {
-//    m_tft->print(cp);
-//    m_tft->print(" ");
-//    charsPrinted += strlen(cp) + 1;
-//  }
-//  for( ; charsPrinted < 200; charsPrinted++)
-//    m_tft->print(" ");
-//}
-////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+/**
+ *
+ */
+void TextPageUIElement::drawTextScreen() {
+  m_tft->drawRect(0, 0, 480, 160, WHITE)
+}
+//////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////
 /**
@@ -161,6 +152,8 @@ uint8_t TextPageUIElement::mapTextTouch(long xInput, long yInput) { ////////////
  */
 void TextPageUIElement::draw(){
   drawTextBoxes(view);
+  drawTextScreen();
+  printHistory(0, 0);
   drawSwitcher(255, 420);
 }
 //////////////////////////////////////////////////////////////////////////
@@ -171,7 +164,6 @@ void TextPageUIElement::draw(){
  */
 void TextPageUIElement::drawTextBoxes(bool view) {
   tft.fillScreen(HX8357_BLACK);
-  printHistory(0, 0);
   for(int y = 160; y < 480; y += 80)
     m_tft->drawFastHLine(0, y, 320, MAGENTA);
   m_tft->drawFastHLine(0, 479, 320, MAGENTA);
