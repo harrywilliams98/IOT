@@ -40,16 +40,17 @@ bool view = true;
 bool TextPageUIElement::handleTouch(long x, long y) {
   m_tft->setTextColor(BLACK, WHITE);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
-
+    drawBackground();
     uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
     int wordsPrinted = 0;
+
 //  if (cursorOn)
 //    removeCursor()
 //  else
 //    printCursor()
 //  cursorOn = !cursorOn
-//
+
     if(symbol == 0) { // "ok"
       D("accepting\n")
       textHistory.store(predictor.first()); // textHistory.dbg();
@@ -61,12 +62,12 @@ bool TextPageUIElement::handleTouch(long x, long y) {
         m_tft->setCursor(2, 80);
         int charsPrinted = 0;
         const char *cp = NULL;
-        while( (cp = predictor.next()) != NULL) {
+        while( ((cp = predictor.next()) != NULL) && wordsPrinted <= 3 ) {
           m_tft->print(cp);
           D("printing words %c\n", cp);
           m_tft->print(" ");
           charsPrinted += strlen(cp) + 1;
-//          wordsPrinted += 1;
+          wordsPrinted += 1;
         }
         wordsPrinted = 0;
         for( ; charsPrinted < 100; charsPrinted++)
@@ -109,7 +110,7 @@ void TextPageUIElement::printHistory(uint16_t x, uint16_t y) {
 /**
  *
  */
-void TextPageUIElement::printCursor(uint16_t x, uint16_t y) {
+void TextPageUIElement::drawBackground() {
   int charsPrinted = 0;
   const char *cp = NULL;
   m_tft->setCursor(x, y);
