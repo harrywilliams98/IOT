@@ -111,7 +111,7 @@ void TextPageUIElement::printHistory(uint16_t x, uint16_t y) {
  *
  */
 void TextPageUIElement::drawTextScreen() {
-  m_tft->drawRect(0, 0, 480, 160, WHITE);
+  m_tft->fillRect(0, 0, 480, 160, WHITE);
 }
 //////////////////////////////////////////////////////////////////////////
 
