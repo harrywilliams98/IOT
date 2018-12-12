@@ -153,7 +153,7 @@ uint8_t TextPageUIElement::mapTextTouch(long xInput, long yInput) { ////////////
 void TextPageUIElement::draw(){
   drawTextBoxes(view);
   drawTextScreen();
-  printHistory(0, 0);
+  printHistory(5, 5);
   drawSwitcher(255, 420);
 }
 //////////////////////////////////////////////////////////////////////////
@@ -237,7 +237,7 @@ void TextHistory::store(const char *word) {
 
 // TODO validate this
 void TextHistory::remove() { // remove last member
-  setTextColor(WHITE)
+  m_tft->setTextColor(WHITE)
   uint8_t lastMemberIndex;
   if(members == 0) return;
   if(cursor == 0)
