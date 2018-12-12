@@ -28,29 +28,11 @@ class ConfigUIElement: public UIElement {
  */
 class TextPageUIElement: public UIElement {
   private:
-    void drawTextBoxes();
+    void drawTextBoxes(bool);
     uint8_t mapTextTouch(long, long);
     void printHistory(uint16_t x, uint16_t y);    
   public:
     TextPageUIElement(Adafruit_HX8357* tft, Adafruit_STMPE610* ts) 
-      : UIElement(tft, ts) { };
-    bool handleTouch(long, long);
-    void draw();
-    void runEachTurn();
-};
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-/**
- * Defintion of QwertyKeyboardUIElement class.
- */
-class QwertyKeyboardUIElement: public UIElement {
-  private:
-    void drawOutline();
-    //void drawLetters();
-    uint8_t mapKeyboardTouch(long, long);
-  public:
-    QwertyKeyboardUIElement(Adafruit_HX8357* tft, Adafruit_STMPE610* ts)
       : UIElement(tft, ts) { };
     bool handleTouch(long, long);
     void draw();

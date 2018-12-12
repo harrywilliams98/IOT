@@ -1,6 +1,7 @@
 // TextPageUIElement.cpp
 
 #include "AllUIElement.h"
+#include <HTTPClient.h>
 
 /////////////////////////////////////////////////////////////////////////
 // predictive text, and text input history //////////////////////////////
@@ -26,6 +27,7 @@ public:
   uint8_t size() { return members; }
 };
 TextHistory textHistory;
+bool view = true;
 
 //////////////////////////////////////////////////////////////////////////
 /**
@@ -66,7 +68,8 @@ bool TextPageUIElement::handleTouch(long x, long y) {
       textHistory.remove(); // textHistory.dbg();
       printHistory(0, 0);
     } else if(symbol == 10) { // ?2
-      // TODO
+      drawTextBoxes(view);
+      view = !view;
     } else if(symbol == 11) { // mode switcher arrow
       return true;
     }
@@ -129,7 +132,7 @@ uint8_t TextPageUIElement::mapTextTouch(long xInput, long yInput) { ////////////
  * 
  */
 void TextPageUIElement::draw(){
-  drawTextBoxes();
+  drawTextBoxes(view);
   drawSwitcher(255, 420);
 }
 //////////////////////////////////////////////////////////////////////////
@@ -138,7 +141,8 @@ void TextPageUIElement::draw(){
 /**
  * Divide up the screen into areas and creates the keyboard
  */
-void TextPageUIElement::drawTextBoxes() {
+void TextPageUIElement::drawTextBoxes(bool view) {
+  tft.fillScreen(HX8357_BLACK);
   for(int y = 160; y < 480; y += 80)
     m_tft->drawFastHLine(0, y, 320, MAGENTA);
   m_tft->drawFastHLine(0, 479, 320, MAGENTA);
@@ -154,11 +158,22 @@ void TextPageUIElement::drawTextBoxes() {
     " ABC", "DEF", " GHI", " JKL", "MNO", "PQRS", " TUV", "WXYZ",
     " del", " ?2", ""
   };
+  const char *numLabels[NUMLABELS] = {
+    " 1",
+    " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9",
+    " del", " ?2", ""
+  };    
+  
   for(int i = 0, x = 30, y = 190; i < NUMLABELS; i++) {
     for(int j = 0; j < 3; j++, i++) {
       m_tft->setCursor(x, y);
-      if(i == 0 || i == 9 || i == 10) m_tft->setTextColor(WHITE);
-      m_tft->print(labels[i]);
+      if(i == 9 || i == 10) m_tft->setTextColor(WHITE);
+      if(view){ 
+        m_tft->print(labels[i]);
+      }
+      else{ 
+        m_tft->print(numLabels[i]);
+      }
       if(i == 0 || i == 9 || i == 10) m_tft->setTextColor(BLUE);
       x += 107;
       if(x > 344) x = 30;
