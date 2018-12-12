@@ -40,7 +40,7 @@ bool view = true;
 bool TextPageUIElement::handleTouch(long x, long y) {
   m_tft->setTextColor(BLACK, WHITE);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
-    drawBackground();
+//    drawBackground();
     uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
     int wordsPrinted = 0;
