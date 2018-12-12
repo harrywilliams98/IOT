@@ -38,7 +38,7 @@ bool view = true;
  * @returns bool - true if the touch is on the switcher
  */
 bool TextPageUIElement::handleTouch(long x, long y) {
-    m_tft->setTextColor(BLACK);
+    m_tft->setTextColor(BLACK, WHITE);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
     uint8_t symbol = mapTextTouch(x, y);
@@ -237,7 +237,6 @@ void TextHistory::store(const char *word) {
 
 // TODO validate this
 void TextHistory::remove() { // remove last member
-  m_tft->setTextColor(WHITE);
   uint8_t lastMemberIndex;
   if(members == 0) return;
   if(cursor == 0)
