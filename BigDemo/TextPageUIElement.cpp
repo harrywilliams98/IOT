@@ -38,6 +38,7 @@ bool view = true;
  * @returns bool - true if the touch is on the switcher
  */
 bool TextPageUIElement::handleTouch(long x, long y) {
+    drawTextScreen();
     m_tft->setTextColor(BLACK, WHITE);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
