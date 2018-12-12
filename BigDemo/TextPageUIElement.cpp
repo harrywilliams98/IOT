@@ -38,7 +38,7 @@ bool view = true;
  * @returns bool - true if the touch is on the switcher
  */
 bool TextPageUIElement::handleTouch(long x, long y) {
-  m_tft->setTextColor(BLACK, WHITE);
+  m_tft->setTextColor(BLACK);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
     uint8_t symbol = mapTextTouch(x, y);
@@ -111,7 +111,7 @@ void TextPageUIElement::printHistory(uint16_t x, uint16_t y) {
  *
  */
 void TextPageUIElement::drawTextScreen() {
-  m_tft->drawRect(0, 0, 480, 160, WHITE)
+  m_tft->drawRect(0, 0, 480, 160, WHITE);
 }
 //////////////////////////////////////////////////////////////////////////
 
