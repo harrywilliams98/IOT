@@ -43,6 +43,7 @@ bool TextPageUIElement::handleTouch(long x, long y) {
 
     uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
+    int wordsPrinted = 0;
 
     if(symbol == 0) { // "ok"
       D("accepting\n")
@@ -55,10 +56,11 @@ bool TextPageUIElement::handleTouch(long x, long y) {
         m_tft->setCursor(0, 80);
         int charsPrinted = 0;
         const char *cp = NULL;
-        while( (cp = predictor.next()) != NULL ) {
+        while( (cp = predictor.next()) != NULL || wordsPrinted < 3 ) {
           m_tft->print(cp);
           m_tft->print(" ");
           charsPrinted += strlen(cp) + 1;
+          wordsPrinted++;
         }
         for( ; charsPrinted < 100; charsPrinted++)
           m_tft->print(" ");
