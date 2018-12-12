@@ -71,7 +71,7 @@ bool TextPageUIElement::handleTouch(long x, long y) {
       D("calling tH.remove(), (%d)\n", symbol);
       textHistory.remove(); // textHistory.dbg();
       printHistory(0, 0);
-      printCursor(0, cursor);
+//      printCursor(0, cursor);
     } else if(symbol == 10) { // ?2
       drawTextBoxes(view);
       view = !view;

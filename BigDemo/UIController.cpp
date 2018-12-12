@@ -185,7 +185,7 @@ void UIController::handleTouch() {
 void UIController::run() {
   if(gotTouch()) {
     handleTouch();
-  } 
+  }
   m_element->runEachTurn();
 
 }
