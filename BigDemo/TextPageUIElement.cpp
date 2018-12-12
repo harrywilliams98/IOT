@@ -41,7 +41,7 @@ bool TextPageUIElement::handleTouch(long x, long y) {
   m_tft->setTextColor(WHITE, BLACK);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
-//    uint8_t symbol = mapTextTouch(x, y);
+    uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
 
     if(symbol == 0) { // "ok"
@@ -115,13 +115,13 @@ uint8_t TextPageUIElement::mapTextTouch(long xInput, long yInput) { ////////////
   // D("row=%d, col=%d, sym=%d\n", row, col, sym)
 
   // TODO
-  m_tft->setTextColor(WHITE, BLACK);
-  char s[5];
-  sprintf(s, "%2d,", sym);
-  m_tft->setCursor(debugCursor,150);
-  debugCursor += 3;
-  if(debugCursor > 280) debugCursor = 0;
-  m_tft->print(s);
+//  m_tft->setTextColor(WHITE, BLACK);
+//  char s[5];
+//  sprintf(s, "%2d,", sym);
+//  m_tft->setCursor(debugCursor,150);
+//  debugCursor += 3;
+//  if(debugCursor > 280) debugCursor = 0;
+//  m_tft->print(s);
   return sym;
 }
 //////////////////////////////////////////////////////////////////////////
