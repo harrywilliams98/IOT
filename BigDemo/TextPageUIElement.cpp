@@ -38,22 +38,27 @@ bool view = true;
  * @returns bool - true if the touch is on the switcher
  */
 bool TextPageUIElement::handleTouch(long x, long y) {
-  m_tft->setTextColor(CYAN, YELLOW);
+  m_tft->setTextColor(BLACK, WHITE);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
     uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
     int wordsPrinted = 0;
-
+//  if (cursorOn)
+//    removeCursor()
+//  else
+//    printCursor()
+//  cursorOn = !cursorOn
+//
     if(symbol == 0) { // "ok"
       D("accepting\n")
       textHistory.store(predictor.first()); // textHistory.dbg();
       predictor.reset();
-      printHistory(0, 0);
+      printHistory(2, 2);
     } else if(symbol >= 1 && symbol <= 8) { // next char
       D("suggesting for %c\n", ((symbol + 1) + '0'));
       if(predictor.suggest(symbol + 1) >= 0) {
-        m_tft->setCursor(0, 80);
+        m_tft->setCursor(2, 80);
         int charsPrinted = 0;
         const char *cp = NULL;
         while( (cp = predictor.next()) != NULL) {
