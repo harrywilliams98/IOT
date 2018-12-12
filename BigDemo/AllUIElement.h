@@ -31,6 +31,7 @@ class TextPageUIElement: public UIElement {
     void drawTextBoxes(bool);
     uint8_t mapTextTouch(long, long);
     void printHistory(uint16_t x, uint16_t y);    
+    void printCursor(uint16_t x, uint16_t y);
   public:
     TextPageUIElement(Adafruit_HX8357* tft, Adafruit_STMPE610* ts) 
       : UIElement(tft, ts) { };

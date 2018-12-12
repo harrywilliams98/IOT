@@ -56,12 +56,14 @@ bool TextPageUIElement::handleTouch(long x, long y) {
         m_tft->setCursor(0, 80);
         int charsPrinted = 0;
         const char *cp = NULL;
-        while( (cp = predictor.next()) != NULL || wordsPrinted < 3 ) {
+        while( (cp = predictor.next()) != NULL or wordsPrinted < 3) {
           m_tft->print(cp);
+          D("printing words %c\n", cp);
           m_tft->print(" ");
           charsPrinted += strlen(cp) + 1;
-          wordsPrinted++;
+          wordsPrinted += 1;
         }
+        wordsPrinted = 0;
         for( ; charsPrinted < 100; charsPrinted++)
           m_tft->print(" ");
       }
@@ -69,6 +71,7 @@ bool TextPageUIElement::handleTouch(long x, long y) {
       D("calling tH.remove(), (%d)\n", symbol);
       textHistory.remove(); // textHistory.dbg();
       printHistory(0, 0);
+      printCursor(0, cursor);
     } else if(symbol == 10) { // ?2
       drawTextBoxes(view);
       view = !view;
@@ -84,6 +87,24 @@ bool TextPageUIElement::handleTouch(long x, long y) {
  * 
  */
 void TextPageUIElement::printHistory(uint16_t x, uint16_t y) { 
+  int charsPrinted = 0;
+  const char *cp = NULL;
+  m_tft->setCursor(x, y);
+  for(cp = textHistory.first(); cp; cp = textHistory.next()) {
+    m_tft->print(cp);
+    m_tft->print(" ");
+    charsPrinted += strlen(cp) + 1;
+  }
+  for( ; charsPrinted < 200; charsPrinted++)
+    m_tft->print(" ");
+}
+//////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+/**
+ *
+ */
+void TextPageUIElement::printCursor(uint16_t x, uint16_t y) {
   int charsPrinted = 0;
   const char *cp = NULL;
   m_tft->setCursor(x, y);
