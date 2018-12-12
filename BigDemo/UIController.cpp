@@ -65,24 +65,24 @@ bool UIController::begin() {
   tft.fillScreen(HX8357_GREEN); WAIT_MS(50) tft.fillScreen(HX8357_BLACK);
   
   // define the first m_element here 
-  switch(m_mode) {
-    case ui_qwerty:
-      m_element = new QwertyKeyboardUIElement(&tft, &ts);  break;
-    case ui_touchpaint:
-      m_element = new TouchpaintUIElement(&tft, &ts);      break;
-    case ui_configure:
-      m_element = new ConfigUIElement(&tft, &ts);          break;
-    case ui_text:
-      m_element = new TextPageUIElement(&tft, &ts);        break;
-    case ui_testcard:
-      m_element = new TestCardUIElement(&tft, &ts);        break;
-    case ui_mic:
-      m_element = new MicPlayerUIElement(&tft, &ts);       break;
-    case ui_music:
-      m_element = new MusicPlayerUIElement(&tft, &ts);     break;
-    default:
-      m_element = new TextPageUIElement(&tft, &ts);
-  }
+//  switch(m_mode) {
+//    case ui_qwerty:
+//      m_element = new QwertyKeyboardUIElement(&tft, &ts);  break;
+//    case ui_touchpaint:
+//      m_element = new TouchpaintUIElement(&tft, &ts);      break;
+//    case ui_configure:
+//      m_element = new ConfigUIElement(&tft, &ts);          break;
+//    case ui_text:
+//      m_element = new TextPageUIElement(&tft, &ts);        break;
+//    case ui_testcard:
+//      m_element = new TestCardUIElement(&tft, &ts);        break;
+//    case ui_mic:
+//      m_element = new MicPlayerUIElement(&tft, &ts);       break;
+//    case ui_music:
+//      m_element = new MusicPlayerUIElement(&tft, &ts);     break;
+//    default:
+//      m_element = new TextPageUIElement(&tft, &ts);
+//  }
 
   m_element->draw();
 
@@ -191,33 +191,33 @@ void UIController::changeMode() {
 
   setTimeSensitivity(); // set TIME_SENS to the default
 
-  switch(m_mode) {
-    case ui_touchpaint:
-      m_mode = ui_configure;  m_element = new ConfigUIElement(&tft, &ts);
-      break;
-    case ui_qwerty:    
-      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
-      break;
-    case ui_configure: 
-      m_mode = ui_mic;        m_element = new MicPlayerUIElement(&tft, &ts);
-      break;
-    case ui_mic:       
-      m_mode = ui_music;      m_element = new MusicPlayerUIElement(&tft, &ts);
-      break;
-    case ui_music:     
-      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
-      break;
-    case ui_text:      
-      m_mode = ui_testcard;   m_element = new TestCardUIElement(&tft, &ts);
-      break;
-    case ui_testcard:  
-      m_mode = ui_touchpaint; setTimeSensitivity(25); 
-      m_element = new TouchpaintUIElement(&tft, &ts);
-      break;
-    default:           
-      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
-  }
-  D("...%d\n", m_mode)
+//  switch(m_mode) {
+//    case ui_touchpaint:
+//      m_mode = ui_configure;  m_element = new ConfigUIElement(&tft, &ts);
+//      break;
+//    case ui_qwerty:    
+//      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
+//      break;
+//    case ui_configure: 
+//      m_mode = ui_mic;        m_element = new MicPlayerUIElement(&tft, &ts);
+//      break;
+//    case ui_mic:       
+//      m_mode = ui_music;      m_element = new MusicPlayerUIElement(&tft, &ts);
+//      break;
+//    case ui_music:     
+//      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
+//      break;
+//    case ui_text:      
+//      m_mode = ui_testcard;   m_element = new TestCardUIElement(&tft, &ts);
+//      break;
+//    case ui_testcard:  
+//      m_mode = ui_touchpaint; setTimeSensitivity(25); 
+//      m_element = new TouchpaintUIElement(&tft, &ts);
+//      break;
+//    default:           
+//      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
+//  }
+//  D("...%d\n", m_mode)
 
   m_element->draw();
 }
