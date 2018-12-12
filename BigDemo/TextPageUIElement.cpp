@@ -41,7 +41,7 @@ bool TextPageUIElement::handleTouch(long x, long y) {
   m_tft->setTextColor(WHITE, BLACK);
     // D("text mode: responding to touch @ %d/%d/%d: ", x, y,-1)
 
-    uint8_t symbol = mapTextTouch(x, y);
+//    uint8_t symbol = mapTextTouch(x, y);
     D("sym=%d, ", symbol)
 
     if(symbol == 0) { // "ok"
@@ -56,12 +56,12 @@ bool TextPageUIElement::handleTouch(long x, long y) {
         int charsPrinted = 0;
         const char *cp = NULL;
         while( (cp = predictor.next()) != NULL ) {
-//          m_tft->print(cp);
-//          m_tft->print(" ");
-//          charsPrinted += strlen(cp) + 1;
+          m_tft->print(cp);
+          m_tft->print(" ");
+          charsPrinted += strlen(cp) + 1;
         }
-//        for( ; charsPrinted < 100; charsPrinted++)
-//          m_tft->print(" ");
+        for( ; charsPrinted < 100; charsPrinted++)
+          m_tft->print(" ");
       }
     } else if(symbol ==  9) { // delete
       D("calling tH.remove(), (%d)\n", symbol);
