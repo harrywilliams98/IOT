@@ -237,7 +237,7 @@ void TextHistory::store(const char *word) {
 
 // TODO validate this
 void TextHistory::remove() { // remove last member
-  m_tft->setTextColor(WHITE)
+  m_tft->setTextColor(WHITE);
   uint8_t lastMemberIndex;
   if(members == 0) return;
   if(cursor == 0)
