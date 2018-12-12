@@ -62,7 +62,7 @@ bool TextPageUIElement::handleTouch(long x, long y) {
         m_tft->setCursor(2, 80);
         int charsPrinted = 0;
         const char *cp = NULL;
-        while( ((cp = predictor.next()) != NULL) && wordsPrinted <= 3 ) {
+        while( ((cp = predictor.next()) != NULL) && wordsPrinted < 3 ) {
           m_tft->print(cp);
           D("printing words %c\n", cp);
           m_tft->print(" ");
