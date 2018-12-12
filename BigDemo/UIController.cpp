@@ -66,27 +66,9 @@ bool UIController::begin() {
   
   // define the first m_element here 
   switch(m_mode) {
-//    case ui_qwerty:
-//      m_element = new QwertyKeyboardUIElement(&tft, &ts);  
-//      break;
-//    case ui_touchpaint:
-//      m_element = new TouchpaintUIElement(&tft, &ts);     
-//      break;
-//    case ui_configure:
-//      m_element = new ConfigUIElement(&tft, &ts);          
-//      break;
     case ui_text:
       m_element = new TextPageUIElement(&tft, &ts);       
       break;
-//    case ui_testcard:
-//      m_element = new TestCardUIElement(&tft, &ts);       
-//      break;
-//    case ui_mic:
-//      m_element = new MicPlayerUIElement(&tft, &ts);     
-//      break;
-//    case ui_music:
-//      m_element = new MusicPlayerUIElement(&tft, &ts);    
-//      break;
     default:
       m_element = new TextPageUIElement(&tft, &ts);
   }
@@ -149,50 +131,7 @@ bool UIController::gotTouch() {
       p = ts.getPoint();
     }
     return true;
-    
-//  if(!ts.touched()) {
-//    return false; // no touches
-//  }
-//    
-//  // set up timings
-//  now = millis();
-//  if(firstTimeThrough) {
-//    sincePrevSig = TIME_SENSITIVITY + 1;
-//  } else {
-//    sincePrevSig = now - prevSigMillis;
-//  }
-//
-//  // retrieve a point
-//  p = ts.getPoint();
-//  // TODO should we read the rest of the buffer? 
-//  //  while (! touch.bufferEmpty()) {
-//
-//  // if it is at 0,0,0 and we've just started then ignore it
-//  if(p == firstTouch && firstTimeThrough) {
-//    dbgTouch();
-//    D(", rejecting (0)\n\n")
-//    return false;
-//  }
-//  firstTimeThrough = false;
-//  
-//  // calculate distance from previous signal
-//  fromPrevSig = distanceBetween(p, prevSig);
-//  dbgTouch();
-//
-//  D(", sincePrevSig<TIME_SENS.: %d...  ", sincePrevSig<TIME_SENSITIVITY)
-//  if(sincePrevSig < TIME_SENSITIVITY) { // ignore touches too recent
-//    D("rejecting (2)\n")
-//  } else if(
-//    fromPrevSig < DIST_SENSITIVITY && sincePrevSig < TREAT_AS_NEW
-//  ) {
-//    D("rejecting (3)\n")
-//  } else {
-//    prevSig = p;
-//    prevSigMillis = now;
-//    D("decided this is a new touch\n")
-//    return true;
-//  }
-//  return false;
+
 }
 //////////////////////////////////////////////////////////////////////////
 
@@ -207,28 +146,6 @@ void UIController::changeMode() {
   setTimeSensitivity(); // set TIME_SENS to the default
 
   switch(m_mode) {
-//    case ui_touchpaint:
-//      m_mode = ui_configure;  m_element = new ConfigUIElement(&tft, &ts);
-//      break;
-//    case ui_qwerty:    
-//      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
-//      break;
-//    case ui_configure: 
-//      m_mode = ui_mic;        m_element = new MicPlayerUIElement(&tft, &ts);
-//      break;
-//    case ui_mic:       
-//      m_mode = ui_music;      m_element = new MusicPlayerUIElement(&tft, &ts);
-//      break;
-//    case ui_music:     
-//      m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
-//      break;
-//    case ui_text:      
-//      m_mode = ui_testcard;   m_element = new TestCardUIElement(&tft, &ts);
-//      break;
-//    case ui_testcard:  
-//      m_mode = ui_touchpaint; setTimeSensitivity(25); 
-//      m_element = new TouchpaintUIElement(&tft, &ts);
-//      break;
     default:           
       m_mode = ui_text;       m_element = new TextPageUIElement(&tft, &ts);
   }

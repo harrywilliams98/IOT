@@ -56,12 +56,12 @@ bool TextPageUIElement::handleTouch(long x, long y) {
         int charsPrinted = 0;
         const char *cp = NULL;
         while( (cp = predictor.next()) != NULL ) {
-          m_tft->print(cp);
-          m_tft->print(" ");
-          charsPrinted += strlen(cp) + 1;
+//          m_tft->print(cp);
+//          m_tft->print(" ");
+//          charsPrinted += strlen(cp) + 1;
         }
-        for( ; charsPrinted < 100; charsPrinted++)
-          m_tft->print(" ");
+//        for( ; charsPrinted < 100; charsPrinted++)
+//          m_tft->print(" ");
       }
     } else if(symbol ==  9) { // delete
       D("calling tH.remove(), (%d)\n", symbol);
@@ -94,7 +94,6 @@ void TextPageUIElement::printHistory(uint16_t x, uint16_t y) {
     m_tft->print(" ");
 }
 //////////////////////////////////////////////////////////////////////////
-
 
 //////////////////////////////////////////////////////////////////////////
 /**
@@ -143,13 +142,13 @@ void TextPageUIElement::draw(){
  */
 void TextPageUIElement::drawTextBoxes(bool view) {
   tft.fillScreen(HX8357_BLACK);
+  printHistory(0, 0);
   for(int y = 160; y < 480; y += 80)
     m_tft->drawFastHLine(0, y, 320, MAGENTA);
   m_tft->drawFastHLine(0, 479, 320, MAGENTA);
   for(int x = 0; x < 480; x += 107)
     m_tft->drawFastVLine(x, 160, 320, MAGENTA);
   m_tft->drawFastVLine(319, 160, 320, MAGENTA);
-
   m_tft->setTextSize(2);
   m_tft->setTextColor(BLUE);
   const uint8_t NUMLABELS = 12;
