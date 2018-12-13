@@ -25,6 +25,9 @@ Another consideration is setting up a user interface for registering the unPhone
 We have considered using Adafruit with a simple layout which shows the coordinates in text and an interactive map to clearly specify the location of the unPhone. In the middle of the screen will be a large circle that shows the status of the unPhone. While the panic button has not been pressed, the circle will be coloured green and when the panic button has been pressed the circle will flash red, drawing attention to the third party while they are on the Adafruit web page. At the centre of the top of the page will be a text box that’s filled in with the follow-up details of the situation if the unPhone user has the opportunity to select one of the three options. 
 
 
+Furthermore, the Adafruit dashboard could have other features such as a number pad which could be used to type in numbers to send the alert to; an interactive map that could display the coordinates and the surrounding area; a stopwatch that checks how much time has passed since the incident began; a slider on the severity of the incident and how the situation got resolved when the alert stopped. However, due to memory constraints on the ESP32 board we believe that these extra features are a surplus and aren’t necessary for the final implementation unless there is a significant amount of memory remaining.
+
+
 In addition to notifying the third party on the Adafruit dashboard, we have considered other methods of transmitting alerts because the third party will not always have the web page opened. Ideas that have crossed our mind include text messages; emails and tweets from Twitter as most everyday people check and receive these regularly. These actions would use IFTTT to automatically trigger after the press of the panic button.
 
 ### Connection Types: LoRaWAN and WiFi
