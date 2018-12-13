@@ -1,15 +1,21 @@
 # Panic Button
 
-## Project Description
-By comparing the connection strength to access points across the globe, this project allows the user to press a panic button on their unPhone alerting others of their location. The unPhone must be able to signal to others the approximate location of the device through using the Google API without being obstructed by being in or around buildings. This allows us to obtain latitude and longitude co-ordinates by observing all wireless access points in the location. 
+## Overview
+This project has the objective of sending the location of the unphone to a third party when a button has been pressed. Through comparing the signal strength of nearby access points, the latitude and longitude coordinates of the ESP32 can be found using the Google Maps API. The location should be sent accurately to the third party and unobstructed by the unPhone being in or around buildings.
 
 ## Design
-  The first aspect to consider is the graphical user interface on the unPhone. This must be clear and simple to use in order for the panic button to be triggered by people of all ages regardless of their technical expertise. The single most important part of the software is the ability to quickly activate the panic button and alerting a third party as soon as possible. 
-  A useful addition would be to give the unPhone user some options to press stating the type of emergency after the button has been triggered, as this could allow them to provide the third party information so they can prepare the necessary response to the situation. We have come to the decision that 3 large buttons matching the emergency services would be adequate; once one is pressed the data will be sent and we have cosnidered refreshing the location in the instance that it has changed.
-  A problem we have considered is accidentally activating the panic button while the unPhone remains in the user's pocket. A method of combatting this would be to have the unphone GUI consist of a slider rather than a button. However, this solution could increase the complexity of the GUI which could be detremental to the system. An alternative solution would be to have a reset button that allows you 
-  Another design choice we have considered is using Adafruit with a simple layout which shows the coordinates in text and an interactive map to clearly specify the location of the unPhone. In the middle of the screen will be a large circle that shows the status of the unPhone. While the panic button has not been pressed, the circle will be coloured green and when the panic button has been pressed the circle will flash red, drawing attention to the third party while they are on the web page. At the centre of the top of the page will be a 
+Before we can get started on the implementation there are several design choices we must consider.
 
-## Implementation
+### unPhone GUI
+First of all we must come to a decision on how the GUI of the unPhone will look. The GUI must be clear and straightforward to use as adults and children need to have the ability to trigger the panic button regardless of their technical expertise. This led us to the agreement that having a large red button on the middle of the screen which can be pressed would be intuitive to use. 
+Although the use of a button is beneficial due to its simplicity, a potential risk occurred to us that the button could accidentally be pressed while in the pocket. A solution to this problem would be to make a slider rather than a button meaning the user must slide a bar across the screen to trigger the panic button. However, this could reduce simplicity of the system and in a large majority of cases the user will have their unPhone switched off while in their bag/pocket in order to save battery, meaning it will not be triggered anyway.
+A useful addition would be to give the unPhone user some options to press stating the type of emergency after the button has been triggered, as this could allow them to provide the third party information so they can prepare the necessary response to the situation. We have come to the decision that 3 large buttons matching the emergency services would be adequate; once one is pressed the data will be sent and we have considered refreshing the location in the instance that it has changed.
+In the case of accidentally triggering the panic button due to a false alarm or the crisis being resolved, we have decided to allow the user of the unPhone to reset the alarm. Following that button press will be two options that the user can select depending on the situation: ‘False Alarm’ or ‘Panic Over’. Afterwards the panic button can be triggered again. 
 
+### Third Party / Responder
+We have considered using Adafruit with a simple layout which shows the coordinates in text and an interactive map to clearly specify the location of the unPhone. In the middle of the screen will be a large circle that shows the status of the unPhone. While the panic button has not been pressed, the circle will be coloured green and when the panic button has been pressed the circle will flash red, drawing attention to the third party while they are on the Adafruit web page. At the centre of the top of the page will be a text box that’s filled in with the follow-up details of the situation if the unPhone user has the opportunity to select one of the three options. 
+In addition to notifying the third party on the Adafruit dashboard, we have considered other methods of transmitting alerts because the third party will not always have the web page opened. Ideas that have crossed our mind include text messages; emails and tweets from Twitter as most everyday people check and receive these regularly. 
 
-## Testing
+### LoRaWAN and WiFi
+    Our first choice is making use of LoRaWAN to allow the unPhone to send out the signals 
+
