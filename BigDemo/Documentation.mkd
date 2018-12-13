@@ -35,3 +35,4 @@ Using WiFi would be beneficial when in range of a router because the connection 
 
 ## Final Design
 Having taken all of our design choices into consideration we have been able to make our final design. Here is our annotated designs of the GUI on the unPhone:
+![unPhone GUI Design](guiDesign.jpg) 
