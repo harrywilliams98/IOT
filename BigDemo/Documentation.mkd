@@ -1,1 +1,15 @@
-This is a test
+# Panic Button
+
+## Project Description
+By comparing the connection strength to access points across the globe, this project allows the user to press a panic button on their unPhone alerting others of their location. The unPhone must be able to signal to others the approximate location of the device through using the Google API without being obstructed by being in or around buildings. This allows us to obtain latitude and longitude co-ordinates by observing all wireless access points in the location. 
+
+## Design
+  The first aspect to consider is the graphical user interface on the unPhone. This must be clear and simple to use in order for the panic button to be triggered by people of all ages regardless of their technical expertise. The single most important part of the software is the ability to quickly activate the panic button and alerting a third party as soon as possible. 
+  A useful addition would be to give the unPhone user some options to press stating the type of emergency after the button has been triggered, as this could allow them to provide the third party information so they can prepare the necessary response to the situation. We have come to the decision that 3 large buttons matching the emergency services would be adequate; once one is pressed the data will be sent and we have cosnidered refreshing the location in the instance that it has changed.
+  A problem we have considered is accidentally activating the panic button while the unPhone remains in the user's pocket. A method of combatting this would be to have the unphone GUI consist of a slider rather than a button. However, this solution could increase the complexity of the GUI which could be detremental to the system. An alternative solution would be to have a reset button that allows you 
+  Another design choice we have considered is using Adafruit with a simple layout which shows the coordinates in text and an interactive map to clearly specify the location of the unPhone. In the middle of the screen will be a large circle that shows the status of the unPhone. While the panic button has not been pressed, the circle will be coloured green and when the panic button has been pressed the circle will flash red, drawing attention to the third party while they are on the web page. At the centre of the top of the page will be a 
+
+## Implementation
+
+
+## Testing
