@@ -43,7 +43,10 @@ Having taken all of our design choices into consideration we have been able to m
 Below is the Flowchart and pseudocode for our system:
 ![Flowchart of unPhone system](PanicBDesign-2.jpg) 
 
-    This is a test
+    Display Panic button main screen 
+    While User has not pressed Panic Button
+        Stay on Main Screen
+    Send Longitu
 
 Below is the design of the Adafruit dashboard:
 ![Flowchart of Adafruit](AdafruitGUIDesign.jpg) 
