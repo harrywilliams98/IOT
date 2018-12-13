@@ -33,3 +33,5 @@ Our first choice is making use of LoRaWAN to allow the unPhone to send out the s
 
 Using WiFi would be beneficial when in range of a router because the connection would be reliable and secure. For this project it is feasible to use WiFi because the demographic is staff and students, meaning a majority of the time they will have a strong connection to UOS-Other which would be sufficient for this system. WiFi will have to be configured 
 
+## Final Design
+Having taken all of our design choices into consideration we have been able to make our final design. Here is our annotated designs of the GUI on the unPhone:
