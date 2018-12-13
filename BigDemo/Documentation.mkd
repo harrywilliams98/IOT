@@ -40,4 +40,4 @@ Having taken all of our design choices into consideration we have been able to m
 Below is the design of the Adafruit dashboard:
 
 Below is the Flowchart and pseudocode for our system:
-![Flowchart of unPhone system](PanicBDesign-1.jpg) 
+![Flowchart of unPhone system](PanicBDesign-2.jpg) 
