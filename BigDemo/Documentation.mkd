@@ -40,7 +40,13 @@ Using WiFi would be beneficial when in range of a router because the connection 
 Having taken all of our design choices into consideration we have been able to make our final design. Here is our annotated designs of the GUI on the unPhone:
 ![unPhone GUI Design](guiDesign.jpg) 
 
-Below is the design of the Adafruit dashboard:
-
 Below is the Flowchart and pseudocode for our system:
 ![Flowchart of unPhone system](PanicBDesign-2.jpg) 
+
+Below is the design of the Adafruit dashboard:
+![Flowchart of Adafruit](AdafruitGUIDesign.jpg) 
+
+Below is the design of the Adafruit Processes:
+![Flowchart of Adafruit](AdafruitDesign.jpg) 
+
+
