@@ -1,7 +1,7 @@
 # Panic Button
 
 ## Overview
-This project has the objective of sending the location of the unphone to a third party when a button has been pressed. Through comparing the signal strength of nearby access points, the latitude and longitude coordinates of the ESP32 can be found using the Google Maps API. The location should be sent accurately to the third party and unobstructed by the unPhone being in or around buildings.
+This project has the objective of sending the location of the unphone to a third party (external user who doesn't have access to the unPhone) when a button has been pressed. Through comparing the signal strength of nearby access points, the latitude and longitude coordinates of the ESP32 can be found using the Google Maps API. The location should be sent accurately to the third party and unobstructed by the unPhone being in or around buildings.
 
 ## Design
 Before we can get started on the implementation there are several design choices we must consider.
@@ -87,4 +87,12 @@ Below is the design of the Adafruit dashboard:
 Here is the design of the Adafruit Processes:
 ![Flowchart of Adafruit](AdafruitDesign.jpg) 
 
+In a summary, here are the key design choices we made having taken everything into consideration:
+
+*Use both LoRaWAN and WiFi as this will likely always create a strong connection to the internet whether indoors or outdoors
+*Intuitive and clear interface with large, self-explanatory buttons allowing computer illiterate users to easily understand the system
+*Send type of emergency to the third party giving them relevant information about the situation
+*Allow the unPhone user to stop the panic alert with 2 options to explain why the emergency ended
+*Send data from the unPhone to the Adafruit Dashboard which allows the third party to clearly understand the situation of the unPhone user. Simple UI consisting of location coordinates; a circle coloured green or red depending on the state of the emergency; the time the signal was sent out and an emergency contact keypad where the number is sent back to the unPhone user advising them to call it. 
+*Send data from the unPhone to a designated mobile phone number and email address. This can be done using IFTTT
 
