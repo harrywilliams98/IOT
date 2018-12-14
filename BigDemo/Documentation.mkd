@@ -3,7 +3,7 @@
 ## Overview
 This project has the objective of sending the location of the unphone to a third party (external user who doesn't have access to the unPhone) when a button has been pressed. Through comparing the signal strength of nearby access points, the latitude and longitude coordinates of the ESP32 can be found using the Google Maps API. The location should be sent accurately to the third party and unobstructed by the unPhone being in or around buildings.
 
-## Design
+## Design Considerations
 Before we can get started on the implementation there are several design choices we must consider.
 
 ### unPhone GUI
@@ -114,6 +114,7 @@ The key functionality aspects of our working system include:
 * Attached phone numbers and emails automatically receive information about location and status whenever the panic button is sent meaning all third party users remain up to date.
 
 Here is a series of screenshots of our unPhone GUI:
+![unPhone GUI Home screen](guiHome.jpg) 
 
 Here is our Adafruit Dashboard:
 
