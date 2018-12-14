@@ -30,11 +30,13 @@ Furthermore, the Adafruit dashboard could have other features such as a number p
 
 In addition to notifying the third party on the Adafruit dashboard, we have considered other methods of transmitting alerts because the third party will not always have the web page opened. Ideas that have crossed our mind include text messages; emails and tweets from Twitter as most everyday people check and receive these regularly. These actions would use IFTTT to automatically trigger after the press of the panic button.
 
-### Connection Types: LoRaWAN and WiFi
+
+### Geolocation Connection Types: LoRaWAN and WiFi
 Our first choice is making use of LoRaWAN to allow the unPhone to send out the signals to IFTTT and Adafruit. The main advantage to choosing LoRaWAN is that the unPhone user is not restricted by their WiFi connection. Otherwise, if they are not connected or are out of range of their registered WiFi networks the system will cease to function, meaning in theory LoRaWAN would be beneficial as they could connect from anywhere. Having a connection from any location is fundamental to this system if the demographic was everyone because the user will never be able to foresee when they will need to use this system, so it is never guaranteed that they will be in a location with WiFi access. 
 
 
-Using WiFi would be beneficial when in range of a router because the connection would be reliable and secure. For this project it is feasible to use WiFi because the demographic is staff and students, meaning a majority of the time they will have a strong connection to UOS-Other which would be sufficient for this system. WiFi will have to be configured 
+Using WiFi would be beneficial when in range of a router because the connection would be reliable and secure. For this project it is feasible to use WiFi because the demographic is staff and students, meaning a majority of the time they will have a strong connection to UOS-Other which would be sufficient for this system. WiFi will have to be configured in the code to work unless we provide a GUI in the unPhone. This would be unnecessary though because the device is dedicated to the University campus which uses just one WiFi connection (as stated before) across all locations.
+
 
 ## Final Design
 Having taken all of our design choices into consideration we have been able to make our final design. Here is our annotated designs of the GUI on the unPhone:
@@ -94,5 +96,12 @@ In a summary, here are the key design choices we made having taken everything in
 * Send type of emergency to the third party giving them relevant information about the situation
 * Allow the unPhone user to stop the panic alert with 2 options to explain why the emergency ended
 * Send data from the unPhone to the Adafruit Dashboard which allows the third party to clearly understand the situation of the unPhone user. Simple UI consisting of location coordinates; a circle coloured green or red depending on the state of the emergency; the time the signal was sent out and an emergency contact keypad where the number is sent back to the unPhone user advising them to call it. 
-* Send data from the unPhone to a designated mobile phone number and email address. This can be done using IFTTT
+* Send data from the unPhone to a designated mobile phone number and email address. This can be done using IFTTT.
+
+
+## Implementation
+While we comfortably achieved our main goals of the design, we did make some changes while developing the software. The most significant change we had to make was to solely use WiFi as the unPhone's connection to the internet instead 
+
+
+
 
