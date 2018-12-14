@@ -135,11 +135,13 @@ Another observation made while using the device was that the RAM usage of the ES
 Here is our Adafruit Dashboard:
 <img src="adaFinalReal.png" width="800">
 
-As seen in the image above, the data and history is clearly shown on the left-hand side with the panic button in the middle showing the current status of the unPhone. One observation we made while testing was that the panic button in the Adafruit dashboard toggles to red before the location information appears. This must be because an alert toggle is significaantly less data to send in comparison to longitude and latitude co ordinates   
+As seen in the image above, the data and history is clearly shown on the left-hand side with the panic button in the middle showing the current status of the unPhone. One observation we made while testing was that the panic button in the Adafruit dashboard toggles to red before the location information appears. This must be because an alert toggle is significantly less data to send in comparison to longitude and latitude co ordinates which also first must be found using the Google Maps API. We also realised that the location alert was received at the same time as the email and text notifications
 
 Here is an example of our IFTTT transmissions working (email and text message):
 
+As we can see, the type of emergency is clearly displayed in both transmissions (email and text). They are also received a
 
+## Conclusion
 
-
+We strongly believe that the 
 
