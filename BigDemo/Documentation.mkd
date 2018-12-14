@@ -37,6 +37,11 @@ Our first choice is making use of LoRaWAN to allow the unPhone to send out the s
 
 Using WiFi would be beneficial when in range of a router because the connection would be reliable and secure. For this project it is feasible to use WiFi because the demographic is staff and students, meaning a majority of the time they will have a strong connection to UOS-Other which would be sufficient for this system. WiFi will have to be configured in the code to work unless we provide a GUI in the unPhone. This would be unnecessary though because the device is dedicated to the University campus which uses just one WiFi connection (as stated before) across all locations.
 
+### Security
+In comparison to other projects, the security considerations are reasonably limited. Using a secure WiFi network such as UOS-Other (that requires one to verify their MAC address) will significantly reduce the risk of our data being compromised. In addition, sendinig data to Adafruit via https means the personal location data will be encrypted during transmission which is beneficial to the security of the system.
+
+### Battery
+Using a connection to WiFi will consume considerably more battery in comparison to LoRaWAN alone. In order to keep the battery consumption minimal we would recommend turning off the device when it doesn't need to be used as this would increase the battery longevity drastically. This makes sense for a system such as a Panic Button device which does not need to be on until the minute a situation occurs. Turning off the device would also prevent pocket-pressing the panic button.
 
 ## Final Design
 Having taken all of our design choices into consideration we have been able to make our final design. Here is our annotated designs of the GUI on the unPhone:
@@ -97,15 +102,18 @@ In a summary, here are the key design choices we made having taken everything in
 * Allow the unPhone user to stop the panic alert with 2 options to explain why the emergency ended
 * Send data from the unPhone to the Adafruit Dashboard which allows the third party to clearly understand the situation of the unPhone user. Simple UI consisting of location coordinates; a circle coloured green or red depending on the state of the emergency; the time the signal was sent out and an emergency contact keypad where the number is sent back to the unPhone user advising them to call it. 
 * Send data from the unPhone to a designated mobile phone number and email address. This can be done using IFTTT.
+* Send data from the unPhone in long time intervals in order to preserve battery life.
 
 
-## Implementation
+## Implementation and Testing
 While we comfortably achieved our main goals of the design, we did make some changes while developing the software. The most significant change we had to make was to solely use WiFi as the unPhone's connection to the internet instead of accessing LoRaWAN. After several attempts to make it work, we could not achieve a successful connection when the device was more than about one metre away from the transmitters or if the device was obstructed by physical barriers such as walls. There would be no purpose to keep this as the chances of maintaining a connection to LoRaWAN when the device is on is minimal so we came to the decision of removing it and simply connecting to UOS-Other WiFi.
 
 
 We also attempted to implement an interactive map in the Adafruit user interface but had no luck as the ESP32 ran out of memory. Upon trying to add the number system into the Adafruit UI we also ran out of memory, although these weren't significantly detrimental to our system as they were surplus features that weren't fundamental. Students and staff on campus typically already know the telephone numbers for campus and local emergency services as they can be seen on the doors to accomodation and on signs around University buildings. This means that the phone number interface is not absolutely necessary to the system. The final change from the design we made was the removal of Twitter's implementation. We decided that this wasn't absolutely necessary because not everyone has twitter whereas students and staff are provided an email address meaning everyone will have one, in addition to a mobile phone that can receive text messages.
 
-A key addition we decided to implement throughout the development stage was a loading screen that appears after the type of emergency is sent to the third party devices (Adafruit dashboard; phone and email). Sending the location data - even over a fast secure WiFi network such as UOS-Other - takes a significant amount of time to transmit meaning we decided to change the design slightly. Instead of sending data when the panic button is hit, data is sent only when the type of emergency is pressed so there is one delay while the data is sent instead of two. This is beneficial to the system because this allows the user to transmit the type of emergency information quicker. After pushing the panic button, pressing one of the 3 options is quick and simple because of the straight-forward GUI meaning the alert is transmitted almost as quickly as just pressing the panic button.
+A key addition we decided to implement throughout the development stage was a loading screen that appears after the type of emergency is sent to the third party devices (Adafruit dashboard; phone and email). Sending the location data - even over a fast secure WiFi network such as UOS-Other - takes a significant amount of time to transmit, causing us to change the design slightly. Instead of sending data when the panic button is hit, data is sent only when the type of emergency is pressed so there is one delay while the data is sent instead of two. This is beneficial to the system because this allows the user to transmit the type of emergency information quicker. After pushing the panic button, pressing one of the 3 options is quick and simple because of the straight-forward GUI meaning the alert is transmitted almost as quickly as just pressing the panic button.
+
+One observation we made as we implemented a WiFi connection to the device was the increase in voltage from 4.1 V to 4.4 V. This 
 
 The key functionality aspects of our working system include:
 * Connecting to a WiFi network to send the panic alerts.
@@ -117,6 +125,8 @@ The key functionality aspects of our working system include:
 Here is a series of screenshots of our unPhone GUI:
 
 <img src="guiHome.jpg" width="200"> <img src="guiTypeOfEmergency.jpg" width="200"> <img src="gettingLocation.jpg" width="200"> <img src="guiSituation.jpg" width="200">
+
+As part of our testing, we confirmed that all of the buttons successfully work by observing whether the notifications were send successfully to the mobile phone (which can show both texts and emails):
 
 Here is our Adafruit Dashboard:
 <img src="adaFinalReal.png" width="800">
