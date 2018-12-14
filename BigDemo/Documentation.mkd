@@ -89,10 +89,10 @@ Here is the design of the Adafruit Processes:
 
 In a summary, here are the key design choices we made having taken everything into consideration:
 
-*Use both LoRaWAN and WiFi as this will likely always create a strong connection to the internet whether indoors or outdoors
-*Intuitive and clear interface with large, self-explanatory buttons allowing computer illiterate users to easily understand the system
-*Send type of emergency to the third party giving them relevant information about the situation
-*Allow the unPhone user to stop the panic alert with 2 options to explain why the emergency ended
-*Send data from the unPhone to the Adafruit Dashboard which allows the third party to clearly understand the situation of the unPhone user. Simple UI consisting of location coordinates; a circle coloured green or red depending on the state of the emergency; the time the signal was sent out and an emergency contact keypad where the number is sent back to the unPhone user advising them to call it. 
-*Send data from the unPhone to a designated mobile phone number and email address. This can be done using IFTTT
+* Use both LoRaWAN and WiFi as this will likely always create a strong connection to the internet whether indoors or outdoors
+* Intuitive and clear interface with large, self-explanatory buttons allowing computer illiterate users to easily understand the system
+* Send type of emergency to the third party giving them relevant information about the situation
+* Allow the unPhone user to stop the panic alert with 2 options to explain why the emergency ended
+* Send data from the unPhone to the Adafruit Dashboard which allows the third party to clearly understand the situation of the unPhone user. Simple UI consisting of location coordinates; a circle coloured green or red depending on the state of the emergency; the time the signal was sent out and an emergency contact keypad where the number is sent back to the unPhone user advising them to call it. 
+* Send data from the unPhone to a designated mobile phone number and email address. This can be done using IFTTT
 
