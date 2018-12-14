@@ -114,7 +114,7 @@ The key functionality aspects of our working system include:
 * Attached phone numbers and emails automatically receive information about location and status whenever the panic button is sent meaning all third party users remain up to date.
 
 Here is a series of screenshots of our unPhone GUI:
-![unPhone GUI Home screen](guiHome.jpg) 
+![unPhone GUI Home screen](guiHome.jpg =250x) 
 
 Here is our Adafruit Dashboard:
 
