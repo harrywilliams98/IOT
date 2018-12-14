@@ -61,18 +61,22 @@ Below is the Flowchart and pseudocode for our system:
             WHILE user has NOT pressed any of the 3 'emergency buttons'
                 Check for buttonPress
             SET typeOfEmergency TO buttonPress
-                SEND typeOfEmergency TO ADAFRUIT_DASHBOARD
-                SEND typeOfEmergency TO designated PHONE_NUMBER through IFTTT
-                SEND typeOfEmergency TO designated EMAIL_ADDRESS through IFTTT 
-                DISPLAY details_of_emergency_screen
-                WHILE panic IS TRUE
-                    Check for response from Adafruit
-                    IF response received
-                        DISPLAY responseNumber
-                    Check for buttonPress
-                    IF buttonPress IS 'Stop Emergency'
-                        SET panic TO FALSE
-        DISPLAY panic_stopped_screen
+            SEND typeOfEmergency TO ADAFRUIT_DASHBOARD
+            SEND typeOfEmergency TO designated PHONE_NUMBER through IFTTT
+            SEND typeOfEmergency TO designated EMAIL_ADDRESS through IFTTT 
+            DISPLAY details_of_emergency_screen
+            WHILE panic IS TRUE
+                Check for response from Adafruit
+                IF response received
+                    DISPLAY responseNumber
+                Check for buttonPress which would stop the alert
+                IF buttonPress IS 'Resolved' OR 'False Alarm' 
+                    SET howPanicEnded TO buttonPress
+                    SEND howPanicEnded TO ADAFRUIT_DASHBOARD
+                    SEND howPanicEnded TO designated PHONE_NUMBER through IFTTT
+                    SEND howPanicEnded TO designated EMAIL_ADDRESS through IFTTT 
+                    SET panic TO FALSE
+        
         
 
     
