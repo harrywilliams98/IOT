@@ -110,5 +110,16 @@ The key functionality aspects of our working system include:
 * Connecting to a WiFi network to send the panic alerts.
 * A simple user interface matching our design. The only difference is the removal of the 'Stop emergency' button. This decision was made to reduce the clutter on the screen maintaining the simplistic look of the GUI. Once the panic button is pressed, the type of situation is pressed and then the resolution (resolved / false alarm) options appear. This does not change the functionality of the code as one could still notify the third parties of the false alarm in such a case; however they now must first state the type of emergency. This is not detrimental to the system because the user will press the type of emergency immediately after pressing the panic button and before realising the situation is a false alarm.
 * When the panic button is pressed, the location data and time is sent to the Adafruit dashboard; phone and email through IFTTT. When the follow up option (type of emergency) is pressed, that information also gets sent to the devices.
-* A clean looking Adafruit dashboard with a large circle showing the current status of the unPhone (green for safe and red for an alert). When the panic button is pressed, the dashboard is updated in real time to change the colour ('status') of the circle and on the left-hand side of the screen the coordiinates and time of alert are printed. When the situation comes to an end, the cause of resolution is printed beneath the information previously sent.
+* A clean looking Adafruit dashboard with a large circle showing the current status of the unPhone (green for safe and red for an alert). When the panic button is pressed, the dashboard is updated in real time to change the colour ('status') of the circle and on the left-hand side of the screen the coordinates and time of alert are printed. When the situation comes to an end, the cause of resolution is printed beneath the information previously sent.
+* Attached phone numbers and emails automatically receive information about location and status whenever the panic button is sent meaning all third party users remain up to date.
+
+Here is a series of screenshots of our unPhone GUI:
+
+Here is our Adafruit Dashboard:
+
+Here is an example of our IFTTT transmissions working (email and text message):
+
+
+
+
 
