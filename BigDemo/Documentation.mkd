@@ -105,6 +105,7 @@ While we comfortably achieved our main goals of the design, we did make some cha
 
 We also attempted to implement an interactive map in the Adafruit user interface but had no luck as the ESP32 ran out of memory. Upon trying to add the number system into the Adafruit UI we also ran out of memory, although these weren't significantly detrimental to our system as they were surplus features that weren't fundamental. Students and staff on campus typically already know the telephone numbers for campus and local emergency services as they can be seen on the doors to accomodation and on signs around University buildings. This means that the phone number interface is not absolutely necessary to the system. The final change from the design we made was the removal of Twitter's implementation. We decided that this wasn't absolutely necessary because not everyone has twitter whereas students and staff are provided an email address meaning everyone will have one, in addition to a mobile phone that can receive text messages.
 
+A key addition we decided to implement throughout the development stage was a loading screen that appears after the type of emergency is sent to the third party devices (Adafruit dashboard; phone and email). Sending the location data - even over a fast secure WiFi network such as UOS-Other - takes a significant amount of time to transmit meaning we decided to change the design slightly. Instead of sending data when the panic button is hit, data is sent only when the type of emergency is pressed so there is one delay while the data is sent instead of two. This is beneficial to the system because this allows the user to transmit the type of emergency information quicker. After pushing the panic button, pressing one of the 3 options is quick and simple because of the straight-forward GUI meaning the alert is transmitted almost as quickly as just pressing the panic button.
 
 The key functionality aspects of our working system include:
 * Connecting to a WiFi network to send the panic alerts.
@@ -115,6 +116,9 @@ The key functionality aspects of our working system include:
 
 Here is a series of screenshots of our unPhone GUI:
 <img src="guiHome.jpg" width="200">
+<img src="guiSituation.jpg" width="200">
+<img src="gettingLocation.jpg" width="200">
+<img src="gettingLocation.jpg" width="200">
 
 Here is our Adafruit Dashboard:
 
