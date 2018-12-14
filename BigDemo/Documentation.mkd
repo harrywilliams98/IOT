@@ -100,7 +100,10 @@ In a summary, here are the key design choices we made having taken everything in
 
 
 ## Implementation
-While we comfortably achieved our main goals of the design, we did make some changes while developing the software. The most significant change we had to make was to solely use WiFi as the unPhone's connection to the internet instead 
+While we comfortably achieved our main goals of the design, we did make some changes while developing the software. The most significant change we had to make was to solely use WiFi as the unPhone's connection to the internet instead of accessing LoRaWAN. After several attempts to make it work, we could not achieve a succesful connection when the device was more than about one metre away from the transmitters or if the device was obstructed by physical barriers such as walls. There would be no purpose to keep this as the chances of maintaining a connection to LoRaWAN when the device is on is minimal so we came to the decision of removing it and simply connecting to UOS-Other WiFi.
+
+
+We also attempted to implement a map in the 
 
 
 
