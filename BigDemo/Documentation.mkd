@@ -116,10 +116,7 @@ The key functionality aspects of our working system include:
 
 Here is a series of screenshots of our unPhone GUI:
 
-<img src="guiHome.jpg" width="200">
-<img src="guiTypeOfEmergency.jpg" width="200">
-<img src="gettingLocation.jpg" width="200">
-<img src="guiSituation.jpg" width="200">
+<img src="guiHome.jpg" width="200"> <img src="guiTypeOfEmergency.jpg" width="200"> <img src="gettingLocation.jpg" width="200"> <img src="guiSituation.jpg" width="200">
 
 Here is our Adafruit Dashboard:
 <img src="adaFinalReal.png" width="800">
